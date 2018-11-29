@@ -51,10 +51,15 @@ class LocaleRedirectorService extends BaseApplicationComponent
     if ($browserLanguages)
     {
       $siteLocaleIds = craft()->i18n->getSiteLocaleIds();
+      $activatedLocalesSet = craft()->globals->getSetByHandle('localizations')->localizationsPublic;
+      $activatedLocales = array();
+      foreach ($activatedLocalesSet as $locale) {
+        $activatedLocales[] = $locale->value;
+      }
 
       foreach ($browserLanguages as $language)
       {
-        if (in_array($language, $siteLocaleIds))
+        if (in_array($language, $siteLocaleIds) && in_array($language, $activatedLocales))
         {
           return $language;
         }
