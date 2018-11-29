@@ -30,7 +30,7 @@ class LocaleRedirectorPlugin extends BasePlugin
 
 	public function getDocumentationUrl()
 	{
-		return 'https://github.com/vigetlabs/craft-localeredirector';
+		return 'https://github.com/craftedsystems/craft-localeredirector';
 	}
 
 	public function getReleaseFeedUrl()
