@@ -51,7 +51,20 @@ class LocaleRedirectorService extends BaseApplicationComponent
     if ($browserLanguages)
     {
       $siteLocaleIds = craft()->i18n->getSiteLocaleIds();
-      $activatedLocalesSet = craft()->globals->getSetByHandle('localizations')->localizationsPublic;
+
+      // if (craft()->userSession->getUser()->admin) // real admins omly
+      if (craft()->userSession->getUser()) // any front-end user
+      {
+        // Use admin settings if front-end user session exists
+        $activatedLocalesSet = craft()->globals->getSetByHandle('localizations')->localizationsAdmin;
+      } 
+      else 
+      {
+        // Use public settings
+        $activatedLocalesSet = craft()->globals->getSetByHandle('localizations')->localizationsPublic;
+      }
+
+      // Filter locales
       $activatedLocales = array();
       foreach ($activatedLocalesSet as $locale) {
         $activatedLocales[] = $locale->value;
