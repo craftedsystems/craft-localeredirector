@@ -20,7 +20,7 @@ class LocaleRedirectorPlugin extends BasePlugin
 
 	public function getDeveloper()
 	{
-		return 'Jeremy Frank';
+		return 'Jeremy Frank (extended by www.crafted.systems)';
 	}
 
 	public function getDeveloperUrl()
@@ -35,7 +35,7 @@ class LocaleRedirectorPlugin extends BasePlugin
 
 	public function getReleaseFeedUrl()
 	{
-		return 'https://raw.githubusercontent.com/vigetlabs/craft-localeredirector/master/releases.json';
+		return 'https://raw.githubusercontent.com/craftedsystems/craft-localeredirector/master/releases.json';
 	}
 
 	public function init()
